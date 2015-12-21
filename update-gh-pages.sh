@@ -9,15 +9,15 @@
   git config --global user.name "Travis"
 
   #using token clone gh-pages branch
-  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/franckleveque/texasholdem-engine.git  gh-pages > /dev/null
+  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/franckleveque/texasholdem-engine.git binaries > /dev/null
 
   #go into diractory and copy data we're interested in to that directory
-  cd gh-pages
+  cd binaries/bin
   cp -Rf $HOME/bin/* .
 
   #add, commit and push files
   git add -f .
-  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to gh-pages"
-  git push -fq origin gh-pages > /dev/null
+  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to binaries"
+  git push -fq origin binaries > /dev/null
 
   echo -e "Done magic with bin\n"
